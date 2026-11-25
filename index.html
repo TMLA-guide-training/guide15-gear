@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第 15 期初級嚮導訓練 裝備清單（招生參考）</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@700&display=swap" rel="stylesheet">
+<style>
+/* 版面：手機優先單欄清單；上方固定篩選列，類別分組，品項可展開；末段為違禁品與低溫開放規則 */
+:root{
+  --bg:#f3f5f1; --surface:#ffffff; --ink:#1c2925; --muted:#5b6a64; --line:#d8ded7;
+  --accent:#2c5b4e; --accent-soft:#e3ede8;
+  --flag:#b93d0a; --flag-bg:#fff0e4;
+  --opt:#6a6f86; --opt-bg:#eceef4;
+  --font-display:"Noto Serif TC","Songti TC",serif;
+  --font-body:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#111715; --surface:#19211e; --ink:#e4ebe7; --muted:#9aa9a2; --line:#2b3632;
+    --accent:#86bfa9; --accent-soft:#1f2f29;
+    --flag:#ff9a5a; --flag-bg:#2e1c10;
+    --opt:#aeb3cc; --opt-bg:#23263a;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#111715; --surface:#19211e; --ink:#e4ebe7; --muted:#9aa9a2; --line:#2b3632;
+  --accent:#86bfa9; --accent-soft:#1f2f29;
+  --flag:#ff9a5a; --flag-bg:#2e1c10;
+  --opt:#aeb3cc; --opt-bg:#23263a;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.65}
+.wrap{max-width:760px;margin:0 auto;padding:0 16px}
+header{padding:28px 0 8px}
+h1{font-family:var(--font-display);font-size:clamp(1.45rem,5vw,1.95rem);line-height:1.3;margin:0 0 10px;text-wrap:balance}
+.ver{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;color:var(--muted);margin:0}
+.ver strong{color:var(--ink);font-weight:500}
+.notice{margin:18px 0 0;display:grid;gap:12px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.box h2{font-size:1rem;margin:0 0 6px}
+.box p{margin:0}
+.box ul{margin:6px 0 0;padding-left:1.2em}
+.flagbox{background:var(--flag-bg);border-color:transparent;border-left:4px solid var(--flag)}
+.flagbox h2{color:var(--flag)}
+.legend{display:grid;gap:6px;margin:8px 0 0;padding:0;list-style:none}
+.legend li{display:flex;gap:8px;align-items:baseline}
+
+/* 篩選列 */
+.bar{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-top:20px}
+.bar .wrap{padding-top:10px;padding-bottom:10px;display:grid;gap:8px}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:.92rem;border:0;background:transparent;color:var(--ink);padding:7px 14px;cursor:pointer}
+.seg button+button{border-left:1px solid var(--line)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--surface)}
+.toggle{font:inherit;font-size:.92rem;border:1px solid var(--flag);color:var(--flag);background:var(--surface);border-radius:8px;padding:7px 12px;cursor:pointer}
+.toggle[aria-pressed="true"]{background:var(--flag);color:var(--surface)}
+.search{flex:1 1 140px;min-width:0;font:inherit;font-size:.95rem;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.count{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums}
+.cats{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.cats::-webkit-scrollbar{display:none}
+.cats a{flex:0 0 auto;font-size:.85rem;text-decoration:none;color:var(--accent);background:var(--accent-soft);border-radius:999px;padding:3px 11px;white-space:nowrap}
+button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* 清單 */
+main{padding:8px 0 24px}
+section.cat{scroll-margin-top:120px;margin-top:22px}
+section.cat h2{font-size:1.08rem;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+section.cat h2 small{font-size:.8rem;color:var(--muted);font-weight:400;font-variant-numeric:tabular-nums}
+.list{display:grid;gap:6px}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.item.flagged{border-left:4px solid var(--flag)}
+.head{display:flex;gap:10px;align-items:flex-start;padding:11px 14px;list-style:none}
+summary.head{cursor:pointer}
+summary.head::-webkit-details-marker{display:none}
+.chev{flex:0 0 auto;width:18px;height:18px;margin-top:3px;color:var(--muted);transition:transform .15s}
+details[open] .chev{transform:rotate(90deg)}
+.nochev{flex:0 0 18px}
+.main{flex:1;min-width:0}
+.name{font-weight:500;line-height:1.45}
+.meta{font-size:.84rem;color:var(--muted);margin-top:2px}
+.badges{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.b{font-size:.75rem;line-height:1.5;border-radius:4px;padding:0 7px;white-space:nowrap}
+.b-req{background:var(--accent-soft);color:var(--accent);font-weight:500}
+.b-opt{background:var(--opt-bg);color:var(--opt)}
+.b-see{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.b-flag{background:var(--flag-bg);color:var(--flag);font-weight:700}
+.body{padding:0 14px 14px 42px;display:grid;gap:10px;font-size:.93rem}
+.body h3{font-size:.8rem;color:var(--muted);font-weight:500;margin:0 0 2px;letter-spacing:.04em}
+.body p{margin:0;white-space:pre-line}
+.body ul{margin:0;padding-left:1.1em}
+.body li+li{margin-top:3px}
+.price{font-variant-numeric:tabular-nums;font-weight:500}
+.empty{padding:24px;text-align:center;color:var(--muted)}
+
+/* 規則段 */
+.rules{margin-top:36px;display:grid;gap:12px}
+.rules > h2{font-family:var(--font-display);font-size:1.3rem;margin:0}
+table{width:100%;border-collapse:collapse;font-size:.9rem;margin-top:8px}
+th,td{text-align:left;vertical-align:top;padding:8px;border-top:1px solid var(--line)}
+th{font-weight:500;color:var(--muted);font-size:.82rem}
+td:first-child{width:42%;font-weight:500;font-variant-numeric:tabular-nums}
+.tablewrap{overflow-x:auto}
+footer{border-top:1px solid var(--line);margin-top:32px;padding:18px 0 40px;font-size:.85rem;color:var(--muted)}
+footer p{margin:0 0 6px}
+@media (max-width:420px){.body{padding-left:14px}}
+@media (prefers-reduced-motion: reduce){.chev{transition:none}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>第 15 期初級嚮導訓練 裝備清單（招生參考）</h1>
+  <p class="ver"><span>資料版本：<strong>2026-11-25</strong>（依簡章 V2.4《附件二》）</span><span>實際以開訓時的裝備說明為準</span></p>
+  <div class="notice">
+    <div class="box flagbox">
+      <h2>！裝備說明後再購買</h2>
+      <p>標示「！」的品項請先不要購買，等 <strong>1 月 28 日裝備說明</strong>確認規格後再買。包括天幕、地布、失溫處置用品、無線電與天線配件、輔助繩、扁帶、Sling、鉤環、刀具和鋸子。</p>
+    </div>
+    <div class="box">
+      <h2>怎麼看這份清單</h2>
+      <ul class="legend">
+        <li><span class="b b-req">必備</span><span>在標示的課程前備齊即可，不必第一次出隊前一次買齊；已有且符合規格的可以沿用。</span></li>
+        <li><span class="b b-opt">選配</span><span>依自己需求評估，不是必買。</span></li>
+        <li><span class="b b-see">見說明</span><span>依個人情況與說明決定。</span></li>
+      </ul>
+      <p style="margin-top:8px">點開品項可看規格與選購重點。開訓後提供的正式裝備檢查表附有參考商品、評測重點與選購說明。</p>
+    </div>
+  </div>
+</header>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="row">
+      <div class="seg" role="group" aria-label="依必備或選配篩選">
+        <button type="button" id="f-all" data-req="all" aria-pressed="true">全部</button>
+        <button type="button" id="f-req" data-req="必備" aria-pressed="false">必備</button>
+        <button type="button" id="f-opt" data-req="選配" aria-pressed="false">選配</button>
+      </div>
+      <button type="button" class="toggle" id="f-flag" aria-pressed="false">只看「！」</button>
+      <input type="search" class="search" id="f-q" placeholder="搜尋品項" aria-label="搜尋品項">
+      <span class="count" id="count" aria-live="polite"></span>
+    </div>
+    <nav class="cats" id="cats" aria-label="類別"></nav>
+  </div>
+</div>
+
+<main class="wrap" id="list"></main>
+
+<div class="wrap">
+  <section class="rules" id="rules">
+    <h2>違禁品與睡袋、睡墊規定</h2>
+    <div class="box">
+      <h2>訓練期間禁帶</h2>
+      <p>帳篷、睡袋、睡墊、菸、酒、檳榔、手持式 GPS 裝置（智慧型手機和 Garmin inReach 除外），以及教官團事前公告的其他禁帶物品。</p>
+      <p style="margin-top:6px;color:var(--muted);font-size:.92rem">違反規定者，主課教官得要求補正或移除；無法補正或移除者，得停止參與當次課程，該次以非特殊事由請假計入出勤。</p>
+    </div>
+    <div class="box">
+      <h2>為什麼不帶睡袋、睡墊</h2>
+      <p>兩天一夜課程模擬帶一日行程時，因山友受傷而須在山區等待救援的情境。學員練習用允許攜帶的裝備避風、防雨、隔離地面、分配保暖資源，並判斷通報、待援與撤離時機，重點不在比誰耐寒。這項限制不代表實際帶過夜行程時不應攜帶這些裝備。</p>
+      <p style="margin-top:6px">本課程為有教官監督的情境演練；若天候或學員狀況使演練風險升高，教官會立即提供保暖裝備、調整活動或中止演練。</p>
+    </div>
+    <div class="box">
+      <h2>睡袋、睡墊何時開放</h2>
+      <p>天候寒冷或潮濕時，可能開放攜帶睡袋、睡墊，詳細規則於開訓時說明，是否開放以主課教官課前通知為準。通知通常在課前 2～3 天才發，請事先準備好備用的睡袋、睡墊（規格見「庇護系統」）。</p>
+      <p style="margin-top:10px"><strong>不論是否開放，每次過夜課程教官團都會備有緊急用的睡袋、睡墊。</strong></p>
+      <ul>
+        <li>未收到開放通知，仍依禁帶規定。</li>
+        <li>出現持續發抖、口齒不清、動作變笨拙、衣物濕透等低溫不適時，請立即告知教官；因安全處置使用教官團提供的裝備，不算違規。</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h2>保暖衣物跨季節攜帶</h2>
+      <p>訓練期間 1 月底至 5 月下旬，橫跨冬季到初夏。學員須具備「行進保暖」與「靜態保暖」兩種功能，但不是每堂課都要同時帶兩件；請依課前通知、地點、海拔、預報、風雨與活動強度調整。不可只用平地氣溫或月份判斷山區保暖需求。</p>
+    </div>
+  </section>
+</div>
+
+<footer class="wrap">
+  <p>資料版本 2026-11-25。本頁為招生說明用的參考版，實際裝備要求以開訓時的裝備說明及各課程課前通知為準。</p>
+  <p>開訓後學員請使用正式的裝備檢查表。</p>
+</footer>
+
+<script>
+const T = {
+  A:"第一次過夜課程前（2 月底）",
+  B:"營務繩結課前（2 月中）",
+  C:"無線電通訊課前（2 月下旬）",
+  D:"技術裝備與繩結課前（3 月初）",
+  E:"地圖與座標課前（3 月下旬）",
+  F:"定向定位實作前（3 月底）",
+  G:"每次戶外課",
+  H:"每次過夜課程",
+  L:"開放時才帶（依課前通知）"
+};
+const DRY = ["請放在防水內袋保持乾燥，營地或衣物濕透時更換。"];
+const CERT = "認證：CE EN 或 UIAA";
+// c 類別, r 必備/選配/見說明, n 品項, q 數量, t 期限, f 裝備說明後再購買, s 規格, k 選購重點
+const ITEMS = [
+// 衣著系統
+{c:"衣著系統",r:"必備",n:"排汗衣（學員服）",q:"1 件",t:"A",k:["統一訂製並繡字，費用由學員均攤。"]},
+{c:"衣著系統",r:"必備",n:"排汗登山褲",q:"1 件",t:"A",s:"長褲；快乾材質（聚酯纖維、尼龍）；中等厚度、耐磨、有彈性",k:["課程會叢林穿越，林下有硬蜱和咬人貓，請穿長褲；可拆式兩截褲上課時要接成長褲。","超輕薄款容易被勾破；購買前試穿，確認抬腿跨步不卡。","不要穿棉質或牛仔褲，吸水後不易乾，容易失溫。"]},
+{c:"衣著系統",r:"必備",n:"行進保暖層（刷毛衣／透氣保暖中層）",q:"1 件",t:"A",s:"行進時穿；保暖、透氣、排汗，薄至中厚刷毛或同性質保暖衣物，可搭配排汗底層與防風防水外層",k:["過夜課程海拔大多在 1,000 m 以下，行進中透氣、快乾、耐勾比保暖力更重要。","優先選薄刷毛，重量約 350 g 以內；厚刷毛行進時容易悶熱。","網格類超輕刷毛很透氣但幾乎不擋風，也容易被樹枝勾壞，不要穿在最外層。","已有功能相當的保暖中層可以沿用。"]},
+{c:"衣著系統",r:"必備",n:"靜態保暖層（羽絨或化纖保暖外套）",q:"1 件",t:"A",s:"休息、營地、夜間及長時間停止活動時穿；可套在其他衣層外，並具防水收納方式",k:["過夜原則上不帶睡袋、睡墊，夜間主要靠這件保暖。2 月底～3 月夜間約 8～15 °C，遇寒流可能降到 5 °C 左右。","建議靜態舒適溫度 +5 °C 以下，0 °C 級較有餘裕。","台灣低海拔潮濕，化纖受潮仍保暖，本期以化纖優先；選羽絨須用防水袋收納。","建議選有帽子的款式。不建議用薄風衣、薄刷毛或生活用薄羽絨背心替代。"]},
+{c:"衣著系統",r:"必備",n:"兩截式雨衣褲",q:"1 套",t:"A",s:"上衣＋褲子分開；防水透氣材質，縫線壓膠\n上衣附帽；褲腳建議有拉鍊，可穿著登山鞋穿脫",k:["不可用輕便雨衣或斗篷式雨衣，背背包和穿越樹林時容易勾破。","叢林穿越建議布料 40D 以上；20D 輕量款較透氣，但較容易勾破。","透氣度數字越大越不悶；腋下透氣拉鍊對爬坡散熱很有幫助。","雨衣兼作防風外層，不必另買風衣。"]},
+{c:"衣著系統",r:"必備",n:"備用排汗衣",q:"1 件",t:"A",k:DRY},
+{c:"衣著系統",r:"必備",n:"備用排汗襪",q:"1 雙",t:"A",k:DRY},
+{c:"衣著系統",r:"必備",n:"備用內著",q:"1 件",t:"A",k:DRY},
+{c:"衣著系統",r:"必備",n:"排汗襪",q:"1 雙",t:"A",k:["請選羊毛或快乾材質，不要穿棉襪。"]},
+{c:"衣著系統",r:"必備",n:"岩盔",q:"1 頂",t:"A",s:"認證：EN 12492 或 UIAA 106\n重量：建議 350 g 以下",k:["只限登山攀岩岩盔，不可用自行車帽或工程帽替代。","混合式（硬殼＋泡棉）耐撞耐刮；輕量款戴久舒服，但外殼較易刮傷凹陷。","試戴須穩固、不壓迫；認證與合適度優先於價格。","泡棉凹陷或帽殼裂損就停止使用。"]},
+{c:"衣著系統",r:"必備",n:"防割工作手套",q:"1 雙",t:"A",s:"防割等級：歐規 EN388 第 5 碼字母 C 以上，或美規 ANSI A3 以上\n掌面：有止滑塗層",k:["課程會使用山刀和鋸子。","EN388 標示是一串代碼（例如 4X43C），第 5 碼字母才是主要的防割依據。","商品只寫「防割 5 級」、沒有字母等級的，無法確認實際防割能力，建議避免。","防割手套擋不住揮砍，安全仍靠正確的使用方式。"]},
+{c:"衣著系統",r:"選配",n:"止滑耐磨手套",q:"1 雙",k:["防割手套濕了或弄髒時替換用。","選全指、掌面有丁腈或乳膠止滑塗層的手套，不要用純棉手套。"]},
+{c:"衣著系統",r:"選配",n:"毛帽",q:"1 頂"},
+{c:"衣著系統",r:"選配",n:"頭巾",q:"1 條"},
+{c:"衣著系統",r:"選配",n:"風衣",q:"最多 1 件",k:["雨衣可兼用，不必另買。"]},
+{c:"衣著系統",r:"選配",n:"遮陽帽",q:"1 頂"},
+// 背負系統
+{c:"背負系統",r:"必備",n:"背包（50 公升以上）",q:"1 個",t:"A",k:["購買前先試背，確認背長和腰帶合身。","若帶折疊泡棉睡墊，建議背包有外掛點。"]},
+{c:"背負系統",r:"必備",n:"打包用防水內袋（大香菇袋）",q:"1 個",t:"A",k:["放在背包內，衣物和備用物品都裝進去。背包套無法完全防水，內袋才是主要的防水措施。"]},
+{c:"背負系統",r:"選配",n:"背包套",q:"1 個"},
+{c:"背負系統",r:"選配",n:"肩帶外掛袋（水壺袋）",q:"1 個",k:["把無線電固定在背包肩帶，行進中方便通訊；確認尺寸適合自己的無線電。","也可用胸前包，但會擋住看腳下的視線，長天線也容易戳到臉。"]},
+// 行進系統
+{c:"行進系統",r:"必備",n:"登山鞋／雨鞋／越野鞋",q:"1 雙（擇一）",t:"A",k:["鞋底需有良好抓地力。","新鞋請先穿過幾次磨合，避免第一次上山就起水泡。"]},
+{c:"行進系統",r:"選配",n:"登山杖",q:"1 組",s:"伸縮式（三節）；鎖定方式以快扣式優先",k:["快扣式鎖得牢、看得出有沒有扣好，戴手套也好操作，本期推薦。","旋轉式較輕，但轉太鬆會滑落、卡泥沙會轉不開。不建議摺疊式（Z 型）。","鋁合金受力過大會先彎曲、不易突然斷，便宜耐用；碳纖維較輕，但卡石縫或側向撞擊可能直接斷。","叢林穿越、攀爬或拉繩路段請收起綁在背包上；杖尖加保護套。"]},
+{c:"行進系統",r:"選配",n:"綁腿",q:"1 副"},
+{c:"行進系統",r:"選配",n:"護踝",q:"1 副"},
+// 照明系統
+{c:"照明系統",r:"必備",n:"頭燈",q:"1 個",t:"A",k:["夜間走山徑優先看「持續行進亮度與續航」，不要只看最高流明；行進亮度建議至少約 200 lm。","內建電池款出發前要充滿；可換電池款的電源較有彈性。"]},
+{c:"照明系統",r:"必備",n:"頭燈備用電池",q:"1 組",t:"A",k:["頭燈電池不可拆者不用帶，改用行動電源充電。"]},
+{c:"照明系統",r:"必備",n:"備用頭燈",q:"1 個",t:"A",k:["主燈故障時仍要能安全走山徑，最高亮度建議至少約 100～200 lm；50 lm 以下的警示燈或營地燈不適合當唯一備用。","建議和主燈用不同電源（例如一支內建鋰電池、一支用 AA 電池）。","與主燈分開收納並防水，出發前逐一測試；行動電源不能取代備用頭燈。"]},
+// 庇護系統
+{c:"庇護系統",r:"必備",n:"4 mm 輔助繩（架設天幕用）",q:"1 條",t:"B",f:1,s:"繩徑 4 mm × 長度 15 m\n破斷拉力 3 kN 以上\n"+CERT,k:["依長度裁切購買。"]},
+{c:"庇護系統",r:"必備",n:"外帳（天幕）",q:"1 張",t:"A",f:1,s:"建議 3 m × 3 m",k:["搭 A 字型時，屋脊高度建議 110～120 cm，坐著寬鬆，空間和擋風雨較平衡。","屋脊越低，地面越寬、越擋風雨，但只剩中間能坐直，斜面也較容易積水。","兩端開口會吹進風雨，頭腳兩端各留 40～50 cm。"]},
+{c:"庇護系統",r:"必備",n:"地布",q:"1 張",t:"A",f:1,s:"寬度：建議 150～180 cm\n長度：建議 200～220 cm（身高＋20～30 cm）",k:["用來隔開地面的濕氣和尖銳物，也是待援時隔絕地面的第一層。","越厚越耐磨、越擋地面的冷，但越重；超輕薄款要小心被刺破。","鋪設時不可超出天幕範圍，超出的部分會接雨水流進睡的地方，請往內摺。"]},
+{c:"庇護系統",r:"必備",n:"長營繩",q:"8 條",t:"A",s:"繩徑 2～4 mm；長度 3 m"},
+{c:"庇護系統",r:"必備",n:"短營繩",q:"2 條",t:"A",s:"繩徑 2～4 mm；長度 40 cm"},
+{c:"庇護系統",r:"必備",n:"營釘",q:"12 支",t:"A",s:"形狀：V 型、Y 型、問號釘\n材質：鈦合金、鋁合金",k:["天幕搭 A 字型至少需 8 支，另外加上風大時的加固和備用。","V／Y 型抓地力強，適合林下鬆軟的腐植土，長度建議 15～18 cm；問號釘較能打進硬地、碎石地，建議混帶幾支。","選亮色或附反光拉繩的款式，收營時點數，山上不留下任何營釘。"]},
+{c:"庇護系統",r:"必備",n:"緊急救生毯",q:"1 個",t:"A",s:"鋁箔（鍍鋁聚酯膜）材質\n展開約 210 × 130 cm 以上，可包住整個人",k:["用來包裹傷患、待援保暖，也可鋪地隔濕或當反光信號。","很薄、容易撕破，擋風擋雨有限，不能取代緊急露宿袋。","事先拆開練習展開；練習過的請另外準備一張新的。"]},
+{c:"庇護系統",r:"必備",n:"緊急露宿袋",q:"1 個",t:"A",s:"可整個人鑽進去的袋狀（不是平面的救生毯）；防水、防風、熱反射；約 100～250 g；建議選有透氣設計或附帽款",k:["受傷、迷途或天黑被迫留在山上時，用來擋風擋雨、保住體溫；建議納入一日登山的緊急包常備。","和救生毯不互相取代：露宿袋給自己用，救生毯留著包裹傷患或鋪地。","只鑽進袋子不算完成待援準備，仍須做出避風、防雨及隔離地面的方法（背包、地布等墊在身下）。","不透氣款內部容易凝結水氣。"]},
+{c:"庇護系統",r:"見說明",n:"睡袋（備用，開放時才帶）",q:"1 個",t:"L",s:"舒適溫度（Comfort，不是 Limit／Extreme）約 5 °C 以下\n化纖棉優先；羽絨請選有防潑水處理的款式\n重量：建議 1.2 kg 以下",k:["平時過夜禁帶；天候寒冷或潮濕時可能開放，以課前通知為準，詳細規則於開訓時說明。","通知通常在課前 2～3 天才發，來不及臨時買或借，請事先準備好。","已有符合溫度要求的睡袋不必新購，也可向親友借用。","未收到開放通知，請不要帶上山。"]},
+{c:"庇護系統",r:"見說明",n:"睡墊（備用，開放時才帶）",q:"1 個",t:"L",s:"隔熱值：R 值 2 以上（ASTM F3340 標準）\n泡棉睡墊或充氣睡墊皆可",k:["同睡袋，平時禁帶，課前通知開放時才帶。","睡在地上時熱量主要被地面帶走，只帶睡袋沒有睡墊還是會冷。","泡棉睡墊便宜、不怕刺破，但體積大；充氣睡墊體積小，要防刺破並帶修補片。"]},
+{c:"庇護系統",r:"選配",n:"坐墊",q:"1 個",s:"泡棉坐墊（可折疊、不吸水）",k:["休息時坐；待援時墊在身下隔絕又濕又冷的地面。重量輕，一日行程也實用。"]},
+// 炊事系統
+{c:"炊事系統",r:"必備",n:"個人餐具",q:"1 套",t:"A",k:["至少需要湯匙、筷子（或湯叉匙）。","選輕量、耐熱、不易破的材質，例如 PP 塑膠、矽膠折疊碗、鈦或不鏽鋼；不要用玻璃、陶瓷或免洗餐具。"]},
+{c:"炊事系統",r:"必備",n:"個人炊煮鍋具",q:"1 套",t:"A",s:"鋁合金（硬陽極或陽極處理）；容量 0.75～1.2 L；附鍋蓋",k:["主要用來煮白飯；一人份 100 g 白飯用 0.75 L 就夠，食量大或要兼煮配菜選 1 L 左右。","米加水不要超過鍋子的一半，避免溢鍋。","鈦鍋導熱不均，煮飯容易燒焦，不建議。"]},
+{c:"炊事系統",r:"必備",n:"打火機",q:"2 個",t:"A",k:["兩個分開存放，其中一個放在防水袋中。"]},
+{c:"炊事系統",r:"必備",n:"水袋",q:"1 組",t:"A",s:"總容量 4 L 以上，可由多個小水袋組成",k:["兩天一夜，每人從到營地到隔天下山約需 3 L；天熱或行程長再加 1 L 左右。","建議用 2 個 2 L：一個破了還有另一個，背水時也能分散放。","軟水袋不要裝接近沸騰的熱水，接縫可能裂開。"]},
+{c:"炊事系統",r:"必備",n:"鋁盆",q:"2 個",t:"F",s:"外徑 27 cm；內徑 25 cm",k:["煮 3～4 人份白飯時使用；團體共炊時作為公裝。"]},
+{c:"炊事系統",r:"必備",n:"爐頭",q:"1 個",t:"A",s:"適用高山瓦斯罐（螺牙接口）\n火力可微調，能轉小火燜飯\n鍋架穩固，可放 1 L 個人鍋",k:["本期主要煮白飯，水滾後要轉小火燜；一體式快煮爐燒水快但控火差，不適合煮飯。","共炊會放 27 cm 鋁盆，鍋架越寬越穩。","火焰有遮蔽的款式比較抗風。","不建議超輕量平價爐，大火時鍋架可能變形，也很怕風。"]},
+{c:"炊事系統",r:"必備",n:"高山瓦斯",q:"1 罐",t:"A",s:"小容量（約 100～110 g）或中容量（約 220～240 g）\n團體共炊時，每人都帶中容量",k:["出發前確認剩餘量（秤重後減掉空罐重量）。","天冷時火力變弱，睡前可把瓦斯罐放在衣物或背包裡，絕對不要用火烤罐子。","有沒有團體共炊以課前通知為準。"]},
+{c:"炊事系統",r:"必備",n:"舀水容器（小杯子、鋼杯皆可）",q:"1 個",t:"A",k:["水源較淺時用來舀水裝進水袋；可用餐具裡的杯子兼用，不必另買。"]},
+{c:"炊事系統",r:"必備",n:"擋風板",q:"1 個",t:"A",s:"鋁合金折疊式（8～12 片）；高度要高過爐頭火口",k:["風是燒不開水、浪費瓦斯的主因；煮飯要長時間小火燜，更需要擋風。","圍成 C 或 U 字形、開口留在下風處，和爐頭保持約 3～5 cm。","絕對不可把瓦斯罐一起圍住，過熱有爆炸風險；不要在天幕內使用。"]},
+{c:"炊事系統",r:"選配",n:"長尾夾",q:"數個",k:["兩個鋁盆上下對扣煮飯時夾住邊緣，減少水蒸氣外洩。","選金屬材質；煮飯時會變燙，請戴手套取下。"]},
+{c:"炊事系統",r:"選配",n:"電弧打火器",q:"1 個",k:["USB 充電、不怕風，適合當備用點火工具；沒電或受潮可能無法使用，不能取代打火機。"]},
+// 飲水系統
+{c:"飲水系統",r:"必備",n:"耐熱水壺",q:"1 個",t:"A",s:"容量約 1 L；瓶身及瓶蓋須由原廠明確標示可承受預計裝入的熱水溫度",k:["課程需要時裝熱水保暖。","一般寶特瓶、軟水袋不可直接裝沸水；也不要只因材質標示 Tritan 就認定可耐沸水。","裝熱水後用襪子或衣物包住，不要直接貼皮膚。"]},
+{c:"飲水系統",r:"選配",n:"過濾器",q:"1 個",k:["選有明確過濾效能標示的產品；中空纖維一般無法去除病毒或化學污染。","濾芯受凍可能損壞且不易察覺，低溫時放在貼身衣物內。"]},
+{c:"飲水系統",r:"選配",n:"保溫瓶",q:"1 個",k:["冬季帶熱水或熱飲，補充熱量、預防失溫；真空不鏽鋼材質，約 500 ml。"]},
+// 急救用品
+{c:"急救用品",r:"必備",n:"個人醫藥包（含個人用藥）",q:"1 包",t:"A",k:["建議內容：OK 繃、紗布、透氣膠帶、彈性繃帶、個人常用藥。","有慢性病者請帶足個人用藥。"]},
+{c:"急救用品",r:"必備",n:"特大塑膠袋（失溫處置教學用）",q:"1 張",t:"A",f:1,s:"115 × 150 cm（單張）；厚度 0.08（薄款）"},
+{c:"急救用品",r:"必備",n:"鋁殼蠟燭（失溫處置教學用）",q:"2 個",t:"A",f:1},
+{c:"急救用品",r:"必備",n:"高音哨",q:"1 個",t:"A",s:"高音哨，或高低音雙管／多頻哨\n無滾珠設計（不會因口水、雨水或泥沙卡住）",k:["掛在背包肩帶等隨手可取的地方，不要收在背包裡。","音量約 115 dB 以上，選亮色比較好找。","背包胸扣附的小哨子音量不足又費力，不能取代。","連續吹三聲是國際通用的求救信號。"]},
+{c:"急救用品",r:"選配",n:"硬蜱拔除器",q:"1 組",k:["選含不同尺寸的組合，並事先熟悉正確操作方式。"]},
+{c:"急救用品",r:"選配",n:"尖嘴鑷子",q:"1 支",k:["夾取細刺、木屑；尖端要能密合，加保護套收納。"]},
+// 修補包
+{c:"修補包",r:"選配",n:"修補用品（大力膠帶、束線帶等）",q:"1 份",k:["建議內容：大力膠帶（可纏在登山杖或水壺上）、束線帶、針線、安全別針、備用扣具、天幕／雨衣修補貼片。"]},
+// 定位導航通訊
+{c:"定位導航通訊",r:"必備",n:"VHF 防水無線電對講機",q:"1 支",t:"C",f:1,k:["課程會以指定機型示範操作，用同一款最容易跟上，請於裝備說明後依說明購買。","部分購買組合已附長鞭天線。","已有防水無線電者可不另購，但須自行確認天線、轉接頭規格是否適用，並事先熟悉操作。"]},
+{c:"定位導航通訊",r:"見說明",n:"長鞭天線（軟鞭天線）",q:"1 支",t:"C",f:1,k:["依對講機購買組合可能已附；自備其他機型者才需另購。"]},
+{c:"定位導航通訊",r:"必備",n:"伸縮型雙頻天線",q:"1 支",t:"C",f:1,k:["接頭規格請於裝備說明時確認。"]},
+{c:"定位導航通訊",r:"必備",n:"無線電轉接頭",q:"1 個",t:"C",f:1,s:"BNC 母轉 SMA 母"},
+{c:"定位導航通訊",r:"必備",n:"高度計／具高度計功能的登山錶",q:"1 個",t:"E",k:["行進中要能方便查看高度，並能手動校正；不可用手機 APP 替代。","購買前確認真的能手動校正，不要只憑賣場寫「高度計」就認定符合。"]},
+{c:"定位導航通訊",r:"必備",n:"軟直尺",q:"1 支",t:"E",s:"40 cm 以上",k:["在地圖上量距離用。"]},
+{c:"定位導航通訊",r:"必備",n:"紙本地圖（課程會教要印哪種）",q:"1 份",t:"E"},
+{c:"定位導航通訊",r:"必備",n:"地圖查報尺",q:"1 張",t:"E",k:["課程提供列印檔，到影印店印在投影片上；一張投影片可印四份。"]},
+{c:"定位導航通訊",r:"必備",n:"指北針",q:"1 個",t:"E",s:"透明底板地圖指北針（Baseplate Compass）；可旋轉方位環、清楚的方位刻度、直邊與毫米／刻度尺",k:["本期有無明顯路徑的探勘導航練習；手機 APP 或手錶的電子羅盤不能取代。","平價入門款即可練習；進階款有長底板、放大鏡、夜光標示，但方位角精度不一定比較高。","購買時確認指針轉動與回正正常、液體艙無明顯氣泡、刻度易讀。","使用時遠離磁吸手機配件、磁鐵及金屬。"]},
+{c:"定位導航通訊",r:"選配",n:"A3 免機器護貝套",q:"1 包",s:"A3 一般型（無孔）10 張",k:["印出來的地圖放進去就能防水。"]},
+{c:"定位導航通訊",r:"選配",n:"A4 免機器護貝套",q:"1 包",s:"A4 一般型（無孔）10 張",k:["用途同 A3 免機器護貝套。"]},
+{c:"定位導航通訊",r:"選配",n:"去漬油",q:"1 瓶",k:["清除護貝地圖上的筆跡；密封、標示清楚，並遠離爐火。"]},
+{c:"定位導航通訊",r:"選配",n:"防水奇異筆",q:"1 支",k:["雨天在護貝地圖上標記；一般油性奇異筆不一定能在濕表面書寫，請確認型號。"]},
+{c:"定位導航通訊",r:"選配",n:"防水筆記本",q:"1 本",k:["潮濕或下雨時也能書寫；搭配鉛筆，事先測試。"]},
+// 技術裝備
+{c:"技術裝備",r:"必備",n:"8 mm 輔助繩（用於主繩）",q:"1 條",t:"D",f:1,s:"繩徑 8 mm × 長度 20 m\n破斷拉力 12.8 kN 以上\n"+CERT,k:["「主繩」是本期課程的稱呼，不代表符合動力繩、靜力繩的標準。","依長度裁切購買。"]},
+{c:"技術裝備",r:"必備",n:"5 mm 輔助繩／普魯士繩（腳繩、練習繩結）",q:"1 條",t:"B",f:1,s:"繩徑 5 mm × 長度 2.5 m\n破斷拉力 5 kN 以上\n"+CERT},
+{c:"技術裝備",r:"必備",n:"5～5.5 mm 高強度輔助繩／普魯士繩（胸繩）",q:"1 條",t:"D",f:1,s:"繩徑 5～5.5 mm × 長度 1.5 m\n破斷拉力 10 kN 以上\n"+CERT},
+{c:"技術裝備",r:"必備",n:"管狀扁帶／管狀織帶",q:"1 條",t:"D",f:1,s:"長度 6 m；寬度 25 mm；厚度 2 mm 以上\n破斷拉力 12.8 kN 以上\n"+CERT},
+{c:"技術裝備",r:"必備",n:"手動上鎖梨形鉤環",q:"3 個",t:"D",f:1,s:"形狀：梨型（HMS）；手動旋轉鎖（screwgate）；鋁合金\n強度：主軸 20 kN 以上、開口 6 kN 以上、橫向 7 kN 以上\n鉤環上刻有 CE、EN 12275 或 UIAA，以及「H」或 HMS 字樣",k:["梨型開口寬，可以打義大利半扣，也放得下多條繩子或扁帶；手動鎖構造簡單，戴手套也好操作。","鑰匙圈、水壺用扣環、五金行掛扣外型相似，但不能承受人體重量，不要買。"]},
+{c:"技術裝備",r:"必備",n:"Sling 扁帶繩環（製作簡易吊帶）",q:"1 條",t:"D",f:1,s:"長度 120～150 cm；寬度 8～12 mm\n破斷拉力 22 kN；Dyneema 材質\n"+CERT,k:["裝備課會先試穿確認尺寸後再買。"]},
+{c:"技術裝備",r:"必備",n:"Sling 扁帶繩環（用於固定點）",q:"2 條",t:"D",f:1,s:"長度 180～240 cm；寬度 8 mm 以上\n破斷拉力 22 kN；尼龍或 Dyneema\n"+CERT,k:["尼龍耐磨、耐熱又便宜，常繞樹幹、石頭，初次購買建議選尼龍。","Dyneema 輕、體積小，但熔點低，不要讓繩子直接在上面摩擦。","使用前檢查縫線、割痕、起毛或明顯褪色。"]},
+// 刀具
+{c:"刀具",r:"必備",n:"山刀",q:"1 把",t:"A",f:1,k:["攜帶時需裝保護套。"]},
+{c:"刀具",r:"必備",n:"山刀保護套",q:"1 個",t:"A",f:1},
+{c:"刀具",r:"必備",n:"鋸子",q:"1 把",t:"A",f:1,s:"折疊式，開啟和收合都能上鎖\n鋸片長約 200～270 mm\n建議選拉切式（日式鋸齒），可更換鋸片",k:["鎖定要牢，使用中鋸片不能突然折回夾到手。","太短的口袋鋸鋸粗枝很吃力，也較容易斷。","拉切式拉的時候出力，比較省力、鋸痕細。"]},
+// 伙食
+{c:"伙食",r:"必備",n:"個人行動水",q:"依行程",t:"G",k:["依行程長度和天氣估算。"]},
+{c:"伙食",r:"必備",n:"米（晚餐）",q:"100 g",t:"H"},
+{c:"伙食",r:"必備",n:"晚餐的配菜",q:"1 餐",t:"H"},
+{c:"伙食",r:"必備",n:"早餐",q:"1 餐",t:"H",k:["自理，依個人喜好準備。"]},
+{c:"伙食",r:"必備",n:"午餐",q:"依行程",t:"G"},
+{c:"伙食",r:"必備",n:"行動糧",q:"依行程",t:"G",k:["選高熱量、方便邊走邊吃的食物，例如堅果、巧克力、能量棒。"]},
+{c:"伙食",r:"必備",n:"備援主食（免煮、可直接食用）",q:"1 份",t:"G",k:["主米煮失敗（燒焦、沒煮熟、打翻）時的備用主食。"]},
+// 其它
+{c:"其它",r:"必備",n:"衛生紙（面紙）",q:"依需要",t:"G"},
+{c:"其它",r:"必備",n:"下山後換穿的乾淨衣物一套（放車上）",q:"1 套",t:"G"},
+{c:"其它",r:"必備",n:"有耳的小塑膠袋／封口袋（裝垃圾）",q:"1 個",t:"G",k:["無痕山林：所有垃圾都要自己帶下山。"]},
+{c:"其它",r:"必備",n:"健保卡",q:"1 張",t:"G"},
+{c:"其它",r:"必備",n:"行動電源＋充電線",q:"1 組",t:"G",k:["建議 10000 mAh 以上，放在防水袋中。"]},
+{c:"其它",r:"選配",n:"輕量摺疊傘",q:"1 把"},
+{c:"其它",r:"選配",n:"防蚊液",q:"1 瓶",s:"有效成分：Picaridin（派卡瑞丁）20%（優先），或 DEET（敵避）20～30%",k:["確認有效成分、濃度、許可證字號及人體皮膚使用標示。","DEET 應避免接觸塑膠及部分裝備材質。","防蚊液不能取代對恙蟲、蜱蟲及螞蟥的衣著防護與身體檢查。"]},
+{c:"其它",r:"選配",n:"防曬用品（防曬乳等）",q:"1 份"},
+{c:"其它",r:"選配",n:"防蟲網",q:"1 個",s:"超細密網目，可套在帽子外；優先選標示可防蠓（小黑蚊）及白蛉的產品",k:["請搭配有帽簷的帽子，避免網布貼臉；通風較差，主要在營地及休息時使用。"]},
+{c:"其它",r:"選配",n:"護唇膏",q:"1 支"},
+{c:"其它",r:"選配",n:"隱形眼鏡／備用眼鏡",q:"1 副"},
+{c:"其它",r:"選配",n:"牙刷",q:"1 支"},
+{c:"其它",r:"選配",n:"耳塞",q:"1 副"}
+];
+const CATS = ["衣著系統","背負系統","行進系統","照明系統","庇護系統","炊事系統","飲水系統","急救用品","修補包","定位導航通訊","技術裝備","刀具","伙食","其它"];
+const state = {req:"all", flag:false, q:""};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reqClass = {"必備":"b-req","選配":"b-opt","見說明":"b-see"};
+const CHEV = '<svg class="chev" viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+function itemHTML(it){
+  const badges = `<div class="badges"><span class="b ${reqClass[it.r]}">${it.r}</span>${it.f?'<span class="b b-flag">！裝備說明後再購買</span>':''}</div>`;
+  const metaParts = [it.q]; if(it.t) metaParts.push(T[it.t]);
+  const head = `<div class="main"><div class="name">${esc(it.n)}</div><div class="meta">${metaParts.map(esc).join("｜")}</div>${badges}</div>`;
+  const hasBody = it.s || (it.k && it.k.length);
+  const cls = "item" + (it.f ? " flagged" : "");
+  if(!hasBody) return `<div class="${cls}"><div class="head"><span class="nochev"></span>${head}</div></div>`;
+  let body = "";
+  if(it.s) body += `<div><h3>規格</h3><p>${esc(it.s)}</p></div>`;
+  if(it.k && it.k.length) body += `<div><h3>選購重點</h3><ul>${it.k.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>`;
+  return `<details class="${cls}"><summary class="head">${CHEV}${head}</summary><div class="body">${body}</div></details>`;
+}
+
+function render(){
+  const q = state.q.trim().toLowerCase();
+  const shown = ITEMS.filter(it =>
+    (state.req==="all" || it.r===state.req) &&
+    (!state.flag || it.f) &&
+    (!q || (it.n + (it.s||"") + (it.k||[]).join("")).toLowerCase().includes(q))
+  );
+  const list = document.getElementById("list");
+  const nav = document.getElementById("cats");
+  let html = "", navHtml = "";
+  CATS.forEach((c,i) => {
+    const items = shown.filter(it => it.c===c);
+    if(!items.length) return;
+    const id = "cat-" + i;
+    navHtml += `<a href="#${id}">${c}</a>`;
+    html += `<section class="cat" id="${id}"><h2>${c}<small>${items.length} 項</small></h2><div class="list">${items.map(itemHTML).join("")}</div></section>`;
+  });
+  list.innerHTML = html || '<p class="empty">沒有符合條件的品項，請調整篩選。</p>';
+  nav.innerHTML = navHtml;
+  document.getElementById("count").textContent = `顯示 ${shown.length} 項`;
+}
+
+document.querySelectorAll(".seg button").forEach(b => b.addEventListener("click", () => {
+  state.req = b.dataset.req;
+  document.querySelectorAll(".seg button").forEach(x => x.setAttribute("aria-pressed", x===b ? "true" : "false"));
+  render();
+}));
+const flagBtn = document.getElementById("f-flag");
+flagBtn.addEventListener("click", () => {
+  state.flag = !state.flag;
+  flagBtn.setAttribute("aria-pressed", state.flag ? "true" : "false");
+  render();
+});
+document.getElementById("f-q").addEventListener("input", e => { state.q = e.target.value; render(); });
+render();
+</script>
+</body>
+</html>
